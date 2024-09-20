@@ -11,8 +11,8 @@ jobs:
         uses: burnett01/rsync-deployments@6.0.0
         with:
           switches: -avrh --delete
-          path: /home/kain/personal_website/personal-site
-          remote_path: 
+          path: 
+          remote_path: /home/kain/personal_website/personal-site
           remote_host: ${{ vars.SSH_HOST }}
           remote_user: ${{ vars.SSH_USERNAME }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
