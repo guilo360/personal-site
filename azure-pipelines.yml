@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- task: SonarQubePrepare@6
+  inputs:
+    SonarQube: 'KMS_sonar_connection'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'SonarProjectWebsite_SonarProjectWebsite_175b1fe7-9bb8-4bdf-ba46-c92d06ace2b1'
+    cliSources: '.'
+
+- task: SonarQubeAnalyze@6
+  inputs:
+    jdkversion: 'JAVA_HOME_17_X64'
+
+- task: SonarQubePublish@6
+  inputs:
+    pollingTimeoutSec: '300'
