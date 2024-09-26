@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -20,6 +21,13 @@ steps:
     configMode: 'manual'
     cliProjectKey: 'SonarProjectWebsite_SonarProjectWebsite_175b1fe7-9bb8-4bdf-ba46-c92d06ace2b1'
     cliSources: '.'
+
+
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+
 
 - script: sudo apt install yarn
 - script: yarn build
