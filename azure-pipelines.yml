@@ -21,6 +21,8 @@ steps:
     cliProjectKey: 'SonarProjectWebsite_SonarProjectWebsite_175b1fe7-9bb8-4bdf-ba46-c92d06ace2b1'
     cliSources: '.'
 
+- script: yarn build
+
 - task: SonarQubeAnalyze@6
   inputs:
     jdkversion: 'JAVA_HOME_17_X64'
